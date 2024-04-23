@@ -1,23 +1,32 @@
 // TASK: import helper functions from utils
 // TASK: import initialData
 
-
 /*************************************************************************************************************************************************
  * FIX BUGS!!!
  * **********************************************************************************************************************************************/
 
 // Function checks if local storage already has data, if not it loads initialData to localStorage
 function initializeData() {
-  if (!localStorage.getItem('tasks')) {
-    localStorage.setItem('tasks', JSON.stringify(initialData)); 
-    localStorage.setItem('showSideBar', 'true')
+  if (!localStorage.getItem("tasks")) {
+    localStorage.setItem("tasks", JSON.stringify(initialData));
+    localStorage.setItem("showSideBar", "true");
   } else {
-    console.log('Data already exists in localStorage');
+    console.log("Data already exists in localStorage");
   }
 }
 
 // TASK: Get elements from the DOM
 const elements = {
+  hideSideBarBtn.getElementById("hide-side-bar-btn");
+  showSideBarBtn.getElementById("show-side-bar-btn");
+  showSidebar.getElementById("show-side-bar");
+  themeSwitch.getElementById("switch");
+  headerBoardName.getElementById("header-board-name");
+  createNewTask.getElementById("add-new-task-btn");
+  editTaskModal.getElementById("edit-task-modal-window");
+  modalWindow.getElementById("modal-window");
+  filterDiv.getElementById("");
+
 
 }
 
@@ -47,6 +56,7 @@ function displayBoards(boards) {
     const boardElement = document.createElement("button");
     boardElement.textContent = board;
     boardElement.classList.add("board-btn");
+    
     boardElement.click()  { 
       elements.headerBoardName.textContent = board;
       filterAndDisplayTasksByBoard(board);
@@ -187,58 +197,46 @@ function toggleModal(show, modal = elements.modalWindow) {
  * **********************************************************************************************************************************************/
 
 function addTask(event) {
-  event.preventDefault(); 
+  event.preventDefault();
 
   //Assign user input to the task object
-    const task = {
-      
-    };
-    const newTask = createNewTask(task);
-    if (newTask) {
-      addTaskToUI(newTask);
-      toggleModal(false);
-      elements.filterDiv.style.display = 'none'; // Also hide the filter overlay
-      event.target.reset();
-      refreshTasksUI();
-    }
+  const task = {};
+  const newTask = createNewTask(task);
+  if (newTask) {
+    addTaskToUI(newTask);
+    toggleModal(false);
+    elements.filterDiv.style.display = "none"; // Also hide the filter overlay
+    event.target.reset();
+    refreshTasksUI();
+  }
 }
 
+function toggleSidebar(show) {}
 
-function toggleSidebar(show) {
- 
-}
-
-function toggleTheme() {
- 
-}
-
-
+function toggleTheme() {}
 
 function openEditTaskModal(task) {
   // Set task details in modal inputs
-  
+  const modal = document.getElementById();
+  modal.style.display = "block";
+  document.getElementById("taskNameInput").value = task.name;
+  document.getElementById("taskDescriptionInput").value = task.description;
 
   // Get button elements from the task modal
 
-
   // Call saveTaskChanges upon click of Save Changes button
- 
 
   // Delete task using a helper function and close the task modal
-
 
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
 }
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
-  
 
   // Create an object with the updated task details
 
-
   // Update task using a hlper functoin
- 
 
   // Close the modal and refresh the UI to reflect the changes
 
@@ -247,15 +245,15 @@ function saveTaskChanges(taskId) {
 
 /*************************************************************************************************************************************************/
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   init(); // init is called after the DOM is fully loaded
 });
 
 function init() {
   setupEventListeners();
-  const showSidebar = localStorage.getItem('showSideBar') === 'true';
+  const showSidebar = localStorage.getItem("showSideBar") === "true";
   toggleSidebar(showSidebar);
-  const isLightTheme = localStorage.getItem('light-theme') === 'enabled';
-  document.body.classList.toggle('light-theme', isLightTheme);
+  const isLightTheme = localStorage.getItem("light-theme") === "enabled";
+  document.body.classList.toggle("light-theme", isLightTheme);
   fetchAndDisplayBoardsAndTasks(); // Initial display of boards and tasks
 }
