@@ -17,17 +17,17 @@ function initializeData() {
 
 // TASK: Get elements from the DOM
 const elements = {
-  hideSideBarBtn.getElementById("hide-side-bar-btn");
-  showSideBarBtn.getElementById("show-side-bar-btn");
-  showSidebar.getElementById("show-side-bar");
-  themeSwitch.getElementById("switch");
-  headerBoardName.getElementById("header-board-name");
-  createNewTask.getElementById("add-new-task-btn");
-  editTaskModal.getElementById("edit-task-modal-window");
-  modalWindow.getElementById("modal-window");
-  filterDiv.getElementById("");
-
-
+  hideSideBarBtn: document.getElementById("hide-side-bar-btn");
+  showSideBarBtn: document.getElementById("show-side-bar-btn");
+  showSidebar: document.getElementById("show-side-bar");
+  themeSwitch: document.getElementById("switch");
+  headerBoardName: document.getElementById("header-board-name");
+  createNewTask: document.getElementById("add-new-task-btn");
+  editTaskModal: document.getElementById("edit-task-modal-window");
+  modalWindow: document.getElementById("modal-window");
+  filterDiv: document.getElementById("filterDiv");
+  cancelEditBtn: document.getElementById("cancel-edit-btn");
+  cancelAddTaskBtn: document.getElementById("cancel-add-task-btn");
 }
 
 let activeBoard = ""
@@ -40,7 +40,7 @@ function fetchAndDisplayBoardsAndTasks() {
   displayBoards(boards);
   if (boards.length > 0) {
     const localStorageBoard = JSON.parse(localStorage.getItem("activeBoard"))
-    activeBoard = localStorageBoard ? localStorageBoard ;  boards[0]; 
+    activeBoard = localStorageBoard ? localStorageBoard : boards[0]; 
     elements.headerBoardName.textContent = activeBoard
     styleActiveBoard(activeBoard)
     refreshTasksUI();
@@ -56,14 +56,14 @@ function displayBoards(boards) {
     const boardElement = document.createElement("button");
     boardElement.textContent = board;
     boardElement.classList.add("board-btn");
-    
-    boardElement.click()  { 
+
+    boardElement.addEventListener("click", function ()  { 
       elements.headerBoardName.textContent = board;
       filterAndDisplayTasksByBoard(board);
       activeBoard = board //assigns active board
       localStorage.setItem("activeBoard", JSON.stringify(activeBoard))
       styleActiveBoard(activeBoard)
-    };
+    });
     boardsContainer.appendChild(boardElement);
   });
 
@@ -73,7 +73,7 @@ function displayBoards(boards) {
 // TASK: Fix Bugs
 function filterAndDisplayTasksByBoard(boardName) {
   const tasks = getTasks(); // Fetch tasks from a simulated local storage function
-  const filteredTasks = tasks.filter(task => task.board = boardName);
+  const filteredTasks = tasks.filter(task => task.board === boardName);
 
   // Ensure the column titles are set outside of this function or correctly initialized before this function runs
 
