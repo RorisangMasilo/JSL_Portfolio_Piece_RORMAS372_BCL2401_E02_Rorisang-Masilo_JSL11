@@ -211,7 +211,12 @@ function addTask(event) {
   }
 }
 
-function toggleSidebar(show) {}
+function toggleSidebar(show) {
+  elements.hideSideBarBtn.style.display = show ? "block" : "none";
+  elements.showSideBarBtn.style.display = show ? "none" : "block";
+
+  localStorage.setItem("showSideBar", show);
+}
 
 function toggleTheme() {}
 
