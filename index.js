@@ -280,12 +280,15 @@ elements.editTaskDescInput.value = task.description;
 
   // Delete task using a helper function and close the task modal
  
- function deleteTasks(taskId) {
+ /* function deleteTasks(taskId) {
   document.getElementById("delete-task-btn").addEventListener("click", function () {
   const taskId = ;
   deleteTasks(taskId);
   closeTaskModal();
-});
+});*/
+elements.deleteTaskBtn.onclick = () => {
+
+}
  } 
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
 }
@@ -294,11 +297,19 @@ function saveTaskChanges(taskId) {
   // Get new user inputs
 
   // Create an object with the updated task details
+  const updatedTask = {
+    board: activeBoard,
+    description: elements.editTaskDescInput.value,
+    id: taskId,
+    status: elements.editSelectStatus.value,
+    title: elements.editTaskTitleInput.value
+  };
 
   // Update task using a helper function
+  putTask(taskId, updatedTask);
 
   // Close the modal and refresh the UI to reflect the changes
-
+  toggleModal(false, elements.editTaskModal);
   refreshTasksUI();
 }
 
