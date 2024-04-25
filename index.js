@@ -25,17 +25,34 @@ function initializeData() {
 
 // TASK: Get elements from the DOM
 const elements = {
-  hideSideBarBtn: document.getElementById("hide-side-bar-btn");
-  showSideBarBtn: document.getElementById("show-side-bar-btn");
-  showSidebar: document.getElementById("show-side-bar");
-  themeSwitch: document.getElementById("switch");
-  headerBoardName: document.getElementById("header-board-name");
-  createNewTask: document.getElementById("add-new-task-btn");
-  editTaskModal: document.getElementById("edit-task-modal-window");
-  modalWindow: document.getElementById("modal-window");
-  filterDiv: document.getElementById("filterDiv");
-  cancelEditBtn: document.getElementById("cancel-edit-btn");
-  cancelAddTaskBtn: document.getElementById("cancel-add-task-btn");
+  // Navigation sidebar
+  hideSideBarBtn: document.getElementById("hide-side-bar-btn"),
+  showSideBarBtn: document.getElementById("show-side-bar-btn"),
+  sideBar: document.querySelector(".side-bar"),
+  sideBarBottom: document.querySelector(".side-bar-bottom"),
+  themeSwitch: document.getElementById("switch"),
+  boardsNavLinksDiv: document.getElementById("boards-nav-links-div"),
+
+  // Filter div
+  filterDiv: document.getElementById("filterDiv"),
+
+  //Activeboards layout
+  headerBoardName: document.getElementById("header-board-name"),
+
+  // Creation of new tasks
+  createNewTask: document.getElementById("add-new-task-btn"),
+  modalWindow: document.getElementById("modal-window"),
+
+  // Edit existing tasks
+  editTaskModal: document.getElementById("edit-task-modal-window"),
+  editTaskForm: document.getElementById("edit-task-form"),
+  editTaskTitleInput: document.getElementById("edit-task-title-input"),
+  editBtn: document.getElementById("edit-btn"),
+  editTaskDescInput:document.getElementById("edit-task-desc-input"),
+  editSelectStatus: document.getElementById("edit-select-status"),
+  cancelEditBtn: document.getElementById("cancel-edit-btn"),
+  saveTaskChangesBtn: document.getElementById("save-task-changes-btn"),
+  deleteTaskBtn: document.getElementById("delete-task-btn"),
 }
 
 let activeBoard = ""
