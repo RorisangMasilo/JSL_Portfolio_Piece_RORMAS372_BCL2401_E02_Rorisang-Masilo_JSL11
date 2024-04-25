@@ -1,5 +1,7 @@
 # [JSL11] Agile Board - Kanban Task Management App
 
+Loom video link: //www.loom.com/share/1724b900738147f48cb5584ad4782159?sid=feb61b14-b68c-4343-9387-9bac73944e8a
+
 ## Project Overview
 
 As a newly hired developer at Agile Board, a fictional company specializing in innovative task management solutions, you'll embark on an exciting journey to enhance their flagship Kanban Task Management App.
