@@ -80,3 +80,34 @@ As you embark on implementing these features, remember the value of tackling the
 ### Areas of Improvement
 
 ### Overall Learning Experience
+
+**Introduction**
+
+- Title: Bug Fixes in Task Management Application
+- Overview: Today, we'll discuss the bug fixes implemented in our task management application.
+
+**Bug Overview**
+
+- Summary: Initially, our application had several bugs impacting functionality and user experience.
+- Challenges: These bugs affected tasks display, sidebar toggling, theme switching, and task creation/editing.
+
+**Bug Fixes**
+
+- Point 1: **Initialization Bug**: Fixed issue where initial data wasn't loaded if local storage was empty.
+- Point 2: **Active Board Assignment**: Corrected syntax error in assigning the active board.
+- Point 3: **Tasks Display Bug**: Resolved issue with displaying tasks under each board.
+- Point 4: **Sidebar Toggle**: Adjusted sidebar toggle functionality for consistency.
+- Point 5: **Theme Switching**: Improved theme switch logic and visual feedback.
+
+**Implementation Details**
+
+- Point 1: Utilized helper functions to fetch, create, update, and delete tasks.
+- Point 2: Imported initial data for populating tasks if local storage was empty.
+- Point 3: Fetched DOM elements for manipulation using JavaScript.
+- Point 4: Implemented event listeners for user interactions like task creation/editing and sidebar toggling.
+- Point 5: Ensured UI consistency by refreshing task display and active board styling.
+
+**Conclusion**
+
+- Summary: With these bug fixes, our task management application now functions smoothly and offers an enhanced user experience.
+- Takeaway: By addressing these bugs promptly, we've improved the reliability and usability of our application.
